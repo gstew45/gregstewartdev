@@ -12,12 +12,12 @@ namespace WebUI.Pages
         [Parameter]
         public string BlogPostId { get; set; }
 
-        public BlogPost BlogPost { get; private set; }
+        public Domain.Entities.BlogPost BlogPost { get; private set; }
 
         protected override async Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
-
+            BlogPost = await BlogService.GetBlogPost(int.Parse(BlogPostId));
         }
 
     }
