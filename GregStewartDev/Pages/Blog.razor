@@ -1,25 +1,41 @@
-﻿@inherits BlogBase;
+﻿@using Domain.Entities;
+@inherits BlogBase;
 @page "/blog"
 
 
-    <section id="blog-banner">
-        <div class="content">
-            <header>
-                <h2>Blog</h2>
-                <p>Tutorials, Insights and more...</p>
-            </header>
-        </div>
-    </section>
+<section id="blog-banner">
+    <div class="content">
+        <header>
+            <h2>Blog</h2>
+            <p>Tutorials, Insights and more...</p>
+        </header>
+    </div>
+</section>
+
+@if (ViewModel != null && ViewModel.BlogPosts != null && ViewModel.BlogPosts.Any())
+{
     <section id="blog-posts" class="spotlight style1 top">
         <div class="content">
             <table>
                 <thead>
                 </thead>
                 <tbody>
+                    @foreach (Domain.Entities.BlogPost testReport in ViewModel.BlogPosts)
+                    {
+                        string urlForNavLink = $"/blogpost/{testReport.Id}";
                         <tr>
-                            <td width="100%">Test Blog Post</td>
+                            <td width="100%">
+                                <NavLink href="@urlForNavLink">
+                                    <div>
+                                        <p>@testReport.Title</p>
+                                        <p>@testReport.Summary</p>
+                                    </div>
+                                </NavLink>
+                            </td>
                         </tr>
+                    }
                 </tbody>
             </table>
         </div>
     </section>
+}

@@ -1,4 +1,6 @@
 {
+    "id": "1",
     "title": "Test Blog",
-    "content": "<a href=\"#one\" class=\"goto-next scrolly\">Next<\/a>"
+    "summary": "This is some test markup",
+    "content": "<p>This is some test markup<\/p>"
 }
