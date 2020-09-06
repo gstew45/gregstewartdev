@@ -9,32 +9,37 @@
         <h3>Tutorials, insights and more...</h3>
         <hr />
     </header>
-</div>
-
     @if (ViewModel != null && ViewModel.BlogPosts != null && ViewModel.BlogPosts.Any())
     {
-        <section id="blog-posts" class="spotlight style1 top">
-            <div class="content">
-                <table>
-                    <thead>
-                    </thead>
-                    <tbody>
-                        @foreach (Domain.Entities.BlogPost testReport in ViewModel.BlogPosts)
-                        {
-                            string urlForNavLink = $"/blogpost/{testReport.Id}";
-                            <tr>
-                                <td width="100%">
-                                    <NavLink href="@urlForNavLink">
-                                        <div>
-                                            <p>@testReport.Title</p>
-                                            <p>@testReport.Summary</p>
-                                        </div>
-                                    </NavLink>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </section>
+        <div class="content-content">
+            @*@foreach (Domain.Entities.BlogPost testReport in ViewModel.BlogPosts)
+                {
+                    string urlForNavLink = $"/blogpost/{testReport.Id}";
+                    <div class="blog-entry">
+                        <a href="@urlForNavLink">
+                            <div>
+                                <h4>@testReport.Title</h4>
+                                <p>@testReport.Summary</p>
+                            </div>
+                        </a>
+                        <hr />
+                    </div>
+                }*@
+
+            @for (int i = 0; i < 10; i++)
+            {
+                string urlForNavLink = $"/blogpost/{i}";
+                <div class="blog-entry">
+                    <a href="@urlForNavLink">
+                        <div>
+                            <h4>This is a test title</h4>
+                            <p>This is a summary that is for testing purposes, this will show how the UI can handle multiple items.</p>
+                        </div>
+                    </a>
+                    <hr />
+                </div>
+            }
+        </div>
     }
+</div>
+

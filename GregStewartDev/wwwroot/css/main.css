@@ -1005,7 +1005,6 @@ body.is-ie #wrapper {
     #content-card .content-content {
         margin-top: 2em;
         text-align: left;
-        font-family: Helvetica;
         line-height: normal;
         text-transform: none;
     }
@@ -1014,18 +1013,28 @@ body.is-ie #wrapper {
     margin-bottom: 2em;
 }
     .career-entry h4 {
-        font-size: 11pt;
         color: #ff7496;
     }
 
     .career-entry p {
         margin-bottom: 0.2em;
-        font-size: 10pt;
     }
 
 .career-description {
     margin-top: 1em;
 }
+
+.blog-entry {
+    margin-bottom: 2em;
+}
+
+    .blog-entry h4 {
+        color: #ff7496;
+    }
+
+    .blog-entry p {
+        margin-bottom: 0.2em;
+    }
 
 #card-nav {
     position: relative;
