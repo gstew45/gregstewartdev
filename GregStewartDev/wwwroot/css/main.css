@@ -1036,6 +1036,10 @@ body.is-ie #wrapper {
         margin-bottom: 0.2em;
     }
 
+.blog-description {
+    margin-top: 1em;
+}
+
 #card-nav {
     position: relative;
     float: right;

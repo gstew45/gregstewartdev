@@ -12,28 +12,15 @@
     @if (ViewModel != null && ViewModel.BlogPosts != null && ViewModel.BlogPosts.Any())
     {
         <div class="content-content">
-            @*@foreach (Domain.Entities.BlogPost testReport in ViewModel.BlogPosts)
-                {
-                    string urlForNavLink = $"/blogpost/{testReport.Id}";
-                    <div class="blog-entry">
-                        <a href="@urlForNavLink">
-                            <div>
-                                <h4>@testReport.Title</h4>
-                                <p>@testReport.Summary</p>
-                            </div>
-                        </a>
-                        <hr />
-                    </div>
-                }*@
-
-            @for (int i = 0; i < 10; i++)
+            @foreach (Domain.Entities.BlogPost testReport in ViewModel.BlogPosts)
             {
-                string urlForNavLink = $"/blogpost/{i}";
+                string urlForNavLink = $"/blogpost/{testReport.Id}";
                 <div class="blog-entry">
                     <a href="@urlForNavLink">
                         <div>
-                            <h4>This is a test title</h4>
-                            <p>This is a summary that is for testing purposes, this will show how the UI can handle multiple items.</p>
+                            <h4>@testReport.Title</h4>
+                            <p>@testReport.DatePosted.ToString("dd MMMM yyyy")</p>
+                            <p class="blog-description">@testReport.Summary</p>
                         </div>
                     </a>
                     <hr />

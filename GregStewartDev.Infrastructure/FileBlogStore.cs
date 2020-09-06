@@ -8,6 +8,7 @@ namespace Infrastructure
 {
     public class FileBlogStore : IBlogStore
     {
+        private const string BlogPostsPath = "..\\BlogPosts";
         public FileBlogStore()
         {
             BlogPosts = new List<BlogPost>();
@@ -17,12 +18,20 @@ namespace Infrastructure
 
         public void Initalize()
         {
-            using (StreamReader r = new StreamReader(@"C:\Dev\GregStewartDev\TestBlogPosts\testblog.json"))
-            {
-                string json = r.ReadToEnd();
-                BlogPost blogPost = JsonConvert.DeserializeObject<BlogPost>(json);
+            bool directoryExists = Directory.Exists(BlogPostsPath);
+            if (!directoryExists)
+                return;
 
-                BlogPosts.Add(blogPost);
+            string[] blogs = Directory.GetFiles(BlogPostsPath, "*.json");
+            foreach (string blog in blogs)
+            {
+                using (StreamReader r = new StreamReader(blog))
+                {
+                    string json = r.ReadToEnd();
+                    BlogPost blogPost = JsonConvert.DeserializeObject<BlogPost>(json);
+
+                    BlogPosts.Add(blogPost);
+                }
             }
         }
     }
