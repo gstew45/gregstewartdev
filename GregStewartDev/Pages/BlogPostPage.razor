@@ -1,0 +1,16 @@
+﻿@using Domain.Entities;
+@inherits BlogPostPageBase
+@page "/blogpost/{BlogPostId}"
+
+
+@if (BlogPost is BlogPost)
+{
+    <section id="blog-post" class="style1 top">
+        <div class="content">
+            <div class="blog-content">
+                <h3>@BlogPost.Title</h3>
+                @((MarkupString)BlogPost.Content)
+            </div>
+        </div>
+    </section>
+}

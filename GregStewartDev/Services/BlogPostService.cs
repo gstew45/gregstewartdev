@@ -1,5 +1,6 @@
 ﻿using Application.BlogPosts.Queries;
 using Application.Interfaces;
+using Domain.Entities;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -36,5 +37,26 @@ namespace WebUI.Services
 
             throw new NotImplementedException();
 		}
-	}
+
+        public async Task<BlogPost> GetBlogPost(int id)
+        {
+            using (HttpResponseMessage response = await _httpClient.GetAsync($"blogposts/{id}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        string payloadReceived = content.ReadAsStringAsync().Result;
+                        return JsonConvert.DeserializeObject<BlogPost>(payloadReceived);
+                    }
+                }
+                else
+                {
+                    throw new Exception($"Error ({response.StatusCode})");
+                }
+            }
+
+            throw new NotImplementedException();
+        }
+    }
 }
