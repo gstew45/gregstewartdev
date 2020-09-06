@@ -3,39 +3,38 @@
 @page "/blog"
 
 
-<section id="blog-banner">
-    <div class="content">
-        <header>
-            <h2>Blog</h2>
-            <p>Tutorials, Insights and more...</p>
-        </header>
-    </div>
-</section>
+<div id="content-card">
+    <header>
+        <h1>Blog</h1>
+        <h3>Tutorials, insights and more...</h3>
+        <hr />
+    </header>
+</div>
 
-@if (ViewModel != null && ViewModel.BlogPosts != null && ViewModel.BlogPosts.Any())
-{
-    <section id="blog-posts" class="spotlight style1 top">
-        <div class="content">
-            <table>
-                <thead>
-                </thead>
-                <tbody>
-                    @foreach (Domain.Entities.BlogPost testReport in ViewModel.BlogPosts)
-                    {
-                        string urlForNavLink = $"/blogpost/{testReport.Id}";
-                        <tr>
-                            <td width="100%">
-                                <NavLink href="@urlForNavLink">
-                                    <div>
-                                        <p>@testReport.Title</p>
-                                        <p>@testReport.Summary</p>
-                                    </div>
-                                </NavLink>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </section>
-}
+    @if (ViewModel != null && ViewModel.BlogPosts != null && ViewModel.BlogPosts.Any())
+    {
+        <section id="blog-posts" class="spotlight style1 top">
+            <div class="content">
+                <table>
+                    <thead>
+                    </thead>
+                    <tbody>
+                        @foreach (Domain.Entities.BlogPost testReport in ViewModel.BlogPosts)
+                        {
+                            string urlForNavLink = $"/blogpost/{testReport.Id}";
+                            <tr>
+                                <td width="100%">
+                                    <NavLink href="@urlForNavLink">
+                                        <div>
+                                            <p>@testReport.Title</p>
+                                            <p>@testReport.Summary</p>
+                                        </div>
+                                    </NavLink>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    }

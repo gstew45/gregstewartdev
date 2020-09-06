@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System.Threading.Tasks;
 
 namespace WebUI.Pages
@@ -12,6 +13,9 @@ namespace WebUI.Pages
         [Parameter]
         public string BlogPostId { get; set; }
 
+        [Inject]
+        public IJSRuntime JSRuntime { get; set; }
+
         public Domain.Entities.BlogPost BlogPost { get; private set; }
 
         protected override async Task OnInitializedAsync()
@@ -20,5 +24,9 @@ namespace WebUI.Pages
             BlogPost = await BlogService.GetBlogPost(int.Parse(BlogPostId));
         }
 
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("Prism.highlightAll");
+        }
     }
 }
