@@ -8,7 +8,7 @@ namespace Infrastructure
 {
     public class FileBlogStore : IBlogStore
     {
-        private const string BlogPostsPath = "..\\BlogPosts";
+        private const string BlogPostsPath = @".\wwwroot\blogposts";
         public FileBlogStore()
         {
             BlogPosts = new List<BlogPost>();
@@ -18,6 +18,7 @@ namespace Infrastructure
 
         public void Initalize()
         {
+            string currentDirectory = Directory.GetCurrentDirectory();
             bool directoryExists = Directory.Exists(BlogPostsPath);
             if (!directoryExists)
                 return;
