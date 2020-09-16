@@ -8,7 +8,7 @@ namespace Infrastructure
 {
     public class FileBlogStore : IBlogStore
     {
-        private const string BlogPostsPath = @".\wwwroot\blogposts";
+        private const string BlogPostsPath = @".\wwwroot\wwwroot\blogposts";
         public FileBlogStore()
         {
             BlogPosts = new List<BlogPost>();
