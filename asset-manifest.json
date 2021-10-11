@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/gregstewartdev/static/css/main.765a57eb.chunk.css",
+    "main.css": "/gregstewartdev/static/css/main.27f7bc55.chunk.css",
     "main.js": "/gregstewartdev/static/js/main.aff4df79.chunk.js",
     "main.js.map": "/gregstewartdev/static/js/main.aff4df79.chunk.js.map",
     "runtime-main.js": "/gregstewartdev/static/js/runtime-main.e5d3e0b3.js",
@@ -10,13 +10,13 @@
     "static/js/3.690b03d7.chunk.js": "/gregstewartdev/static/js/3.690b03d7.chunk.js",
     "static/js/3.690b03d7.chunk.js.map": "/gregstewartdev/static/js/3.690b03d7.chunk.js.map",
     "index.html": "/gregstewartdev/index.html",
-    "static/css/main.765a57eb.chunk.css.map": "/gregstewartdev/static/css/main.765a57eb.chunk.css.map",
+    "static/css/main.27f7bc55.chunk.css.map": "/gregstewartdev/static/css/main.27f7bc55.chunk.css.map",
     "static/js/2.f59b8e4f.chunk.js.LICENSE.txt": "/gregstewartdev/static/js/2.f59b8e4f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e5d3e0b3.js",
     "static/js/2.f59b8e4f.chunk.js",
-    "static/css/main.765a57eb.chunk.css",
+    "static/css/main.27f7bc55.chunk.css",
     "static/js/main.aff4df79.chunk.js"
   ]
 }
